@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const authRouter = require('./routes/auth');
+const productRoutes = require('./routes/product.routes');
 
 const app = express();
 
@@ -8,10 +8,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
-    res.status(200).json({ message: 'Auth Service is running' });
+    res.status(200).json({ message: 'Product Service is running' });
 });
 
-// Auth routes
-app.use('/api/auth', authRouter);
+app.use('/api/products', productRoutes);
 
 module.exports = app;

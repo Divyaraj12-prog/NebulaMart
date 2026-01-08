@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const { address } = require('framer-motion/client');
 const jwt = require('jsonwebtoken');
 const redis = require('../DB/redis');
+const { publishToQueue } = require('../broker/broker');
 
 async function registerUser(req, res) {
 
@@ -24,6 +25,16 @@ async function registerUser(req, res) {
             fullname: { firstname, lastname },
             role:role || 'user'
         });
+
+        await Promise.all([
+            publishToQueue('AUTH_NOTIFICATION.USER_CREATED', {
+            id: user._id,
+            username: user.username,
+            email: user.email,
+            fullname: user.fullname,
+            }),
+            publishToQueue('AUTH_SELLER_DASHBOARD.USER_CREATED', user)
+        ]);
 
         const token = jwt.sign({
             id: user._id,
