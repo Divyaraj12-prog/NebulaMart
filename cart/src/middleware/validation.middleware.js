@@ -1,5 +1,5 @@
 const {body, validationResult, param} = require('express-validator');
-const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 
 const validate = (req, res, next) => {
     const errors = validationResult(req);

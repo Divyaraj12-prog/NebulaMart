@@ -1,4 +1,3 @@
-const { time } = require('framer-motion');
 const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema({
