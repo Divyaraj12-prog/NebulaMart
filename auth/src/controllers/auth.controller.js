@@ -1,6 +1,5 @@
 const userModel = require('../models/user.model');
 const bcrypt = require('bcrypt');
-const { address } = require('framer-motion/client');
 const jwt = require('jsonwebtoken');
 const redis = require('../DB/redis');
 const { publishToQueue } = require('../broker/broker');

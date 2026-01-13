@@ -30,8 +30,9 @@ async function getMetrics(req,res){
         let sales = 0;
         let revenue = 0;
         const productStats = {};
+        // Initialize product stats 
         for (const p of products) productStats[p._id.toString()] = { title: p.title, quantity: 0, revenue: 0 };
-
+        
         for (const order of orders) {
             let orderSellerAmount = 0;
             for (const item of order.items) {

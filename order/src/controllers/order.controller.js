@@ -8,7 +8,7 @@ async function createOrder(req, res) {
 
     try {
         // Fetch user cart from cart service it will give productId and qty
-        const cartRes = await axios.get('http://localhost:3002/api/cart/', {
+        const cartRes = await axios.get('http://nebulamart-ALB-1425170346.ap-south-1.elb.amazonaws.com/api/cart/', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -18,7 +18,7 @@ async function createOrder(req, res) {
 
         // Through productId give a get request to product service and get that product
         const product = await Promise.all(cartRes.data.cart.items.map(async (item) => {
-            return (await axios.get(`http://localhost:3001/api/products/${item.productId}`, {
+            return (await axios.get(`http://nebulamart-ALB-1425170346.ap-south-1.elb.amazonaws.com/api/products/${item.productId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
