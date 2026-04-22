@@ -76,6 +76,34 @@ Example configuration is provided in `.env.example`.
 
 ---
 
+These screenshots demonstrate the deployed microservices infrastructure and runtime behavior of the system.
+## 📸 Deployment Screenshots
+
+### ECS Services
+![ECS Services](./screenshots/cluster-services.png)
+
+### ECS Cluster Services
+![ECS Cluster Services](./screenshots/ecs-cluster-services.png)
+
+### ALb Listener
+![ALb Listener](./screenshots/alb-listener-rules.png)
+
+### Create Order Postman
+![Order Services](./screenshots/create-order-postman.png)
+
+### ECR Repository
+![ECR Repository](./screenshots/ecr-repository.png)
+
+### Docker Setup
+![Docker](./screenshots/dockerfile.png)
+
+### Load Balancer Configuration
+![ALB](./screenshots/load-balancer-details.png)
+
+### Logs & Monitoring
+![Logs](./screenshots/log-events.png)
+
+
 ## 📌 Status
 Project completed as part of an advanced backend development course.
 Infrastructure cleaned after deployment to avoid unnecessary costs.
